@@ -26,6 +26,10 @@ google.setOnLoadCallback(function() {
   var options = new google.search.DrawOptions();
   options.setAutoComplete(true);
   customSearchControl.draw('cse', options);
-  
+  var match = location.search.match(/q=([^&]*)(&|$)/);
+if(match && match[1]){
+    var search = decodeURIComponent(match[1]); 
+customSearchControl.execute(search);
+}
   </body>
 </html>
