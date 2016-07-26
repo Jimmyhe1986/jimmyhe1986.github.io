@@ -17,6 +17,11 @@ google.setOnLoadCallback(function() {
   options.setAutoComplete(true);
   customSearchControl.draw('cse', options);
 }, true);
+var match = location.search.match(/q=([^&]*)(&|$)/);
+if(match && match[1]){
+    var search = decodeURIComponent(match[1]); 
+customSearchControl.execute(search);
+}
 </script>
 <style type='text/css'>
   .gsc-control-cse {
