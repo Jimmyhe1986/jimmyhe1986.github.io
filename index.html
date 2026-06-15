@@ -1,70 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>新闻对股市影响分析（针对中国市场）</title>
-<style>
-    table { border-collapse: collapse; width: 100%; font-family: Arial, sans-serif; font-size: 10pt; }
-    th, td { border: 1px solid #333; padding: 8px; vertical-align: top; }
-    th { background-color: #f2f2f2; font-weight: bold; text-align: center; }
-    td { text-align: left; }
-    .positive { color: green; }
-    .negative { color: red; }
-    .neutral { color: gray; }
-</style>
+    <meta charset="UTF-8">
+    <title>新闻对股市影响分析（针对中国市场）</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 20px; background: #f0f2f5; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+        h1 { color: #1a3a5c; border-bottom: 3px solid #2c7da0; padding-bottom: 10px; }
+        .summary { background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .summary-stats { display: flex; gap: 30px; flex-wrap: wrap; margin: 10px 0; }
+        .stat { padding: 8px 16px; border-radius: 20px; font-weight: bold; }
+        .stat-positive { background: #d5f5e3; color: #1e7e34; }
+        .stat-negative { background: #fadbd8; color: #c0392b; }
+        .stat-neutral { background: #fdebd0; color: #e67e22; }
+        .stat-none { background: #e9ecef; color: #6c757d; }
+        table { border-collapse: collapse; width: 100%; font-size: 9.5pt; margin-top: 20px; }
+        th, td { border: 1px solid #bbb; padding: 8px 10px; vertical-align: top; }
+        th { background: #1a3a5c; color: white; text-align: center; position: sticky; top: 0; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        tr:hover { background: #e3f2fd; }
+        .positive { color: #1e7e34; font-weight: bold; }
+        .negative { color: #c0392b; font-weight: bold; }
+        .neutral { color: #e67e22; font-weight: bold; }
+        .footer { margin-top: 30px; padding-top: 15px; border-top: 1px solid #ccc; font-size: 11px; color: #666; text-align: center; }
+        @media print { body { background: white; } .container { box-shadow: none; padding: 0; } th { background: #ccc; color: black; } }
+    </style>
 </head>
 <body>
-<h2>新闻对股市影响分析（针对中国市场）</h2>
-<p>数据时间：2026年6月2日（基于提供的新闻列表）</p>
-<table>
-    <thead>
-        <tr>
-            <th>日期</th>
-            <th>新闻标题（简要）</th>
-            <th>股市关键词</th>
-            <th>对中国股市影响</th>
-            <th>影响分析（针对中国市场）</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td>2026年6月2日</td><td>全球智能手机市场因芯片短缺面临严重危机</td><td>芯片短缺、手机出货</td><td class="negative">消极</td><td>中国是全球最大智能手机生产和消费市场，芯片短缺将冲击华为、小米、OPPO、vivo等厂商的产能与利润，拖累消费电子及半导体封测板块。</td></tr>
-        <tr><td>2026年6月2日</td><td>NVIDIA推出人形机器人开发工具</td><td>机器人、AI工具</td><td class="positive">积极</td><td>利好中国机器人产业链（如绿的谐波、埃斯顿），同时促使国内AI公司加速追赶，但需警惕英伟达生态垄断对国产AI芯片的挤压。</td></tr>
-        <tr><td>2026年6月2日</td><td>Alphabet计划为AI基础设施增资800亿美元</td><td>AI投资、资本开支</td><td class="positive">积极（长期）</td><td>全球AI军备竞赛加剧，中国科技巨头（阿里、腾讯、百度、华为）必然跟进投入，利好国产AI服务器、光模块、算力芯片（如寒武纪、海光信息）。</td></tr>
-        <tr><td>2026年6月2日</td><td>黑客利用Meta AI聊天机器人入侵奥巴马账户</td><td>网络安全、Meta</td><td class="neutral">中性偏消极</td><td>直接冲击Meta，对A股网络安全公司（奇安信、深信服）影响有限；但可能引发国内对AI聊天机器人安全性的更严监管，增加合规成本。</td></tr>
-        <tr><td>2026年6月2日</td><td>Gemini Spark AI代理引发成本和隐私问题</td><td>AI代理、隐私</td><td class="negative">消极</td><td>隐私担忧可能延缓国内企业采用AI代理的步伐，影响相关SaaS和AI应用公司（如科大讯飞、金山办公）的短期预期。</td></tr>
-        <tr><td>2026年6月2日</td><td>中国收紧对外投资规则防止技术泄露</td><td>对外投资、技术保护</td><td class="neutral">中性偏消极</td><td>直接利空中资企业海外并购（如半导体、AI领域），可能限制部分公司全球化布局；但长期有助于核心技术留在中国，对自主可控行业影响复杂。</td></tr>
-        <tr><td>2026年6月2日</td><td>洛克希德·马丁开设导弹工厂</td><td>军工、导弹</td><td class="positive">积极（军工）</td><td>加剧全球军备竞赛，中国将加大对国产导弹和军工企业的投入，利好A股军工板块（如中航西飞、洪都航空、高德红外）。</td></tr>
-        <tr><td>2026年6月2日</td><td>《纽约时报》出版商批评AI公司无偿使用新闻内容</td><td>版权、AI内容</td><td class="neutral">中性</td><td>中国已出台类似规定（如要求AI训练数据合法），对国内新闻出版和AI公司影响不大；但可能强化国内版权保护政策，利好数字版权公司（视觉中国、中文在线）。</td></tr>
-        <tr><td>2026年6月2日</td><td>英伟达与微软开启AI PC新时代</td><td>AI PC、芯片</td><td class="positive">积极</td><td>AI PC将带动国内PC产业链（联想、华勤技术）以及国产存储（长江存储、兆易创新）需求，但英伟达+微软组合可能挤压国产芯片在PC端的空间。</td></tr>
-        <tr><td>2026年6月2日</td><td>欧盟追求数字主权（开源、本土云与AI）</td><td>数字主权、欧盟</td><td class="negative">消极（对出海企业）</td><td>欧盟门槛提高，中国云计算和AI公司（阿里云、华为云）在欧洲扩展将面临更大壁垒，增加合规成本，影响海外收入预期。</td></tr>
-        <tr><td>2026年6月2日</td><td>中国科技公司开发AI剖析公民并预测不同政见</td><td>AI监控、伦理</td><td class="negative">严重消极</td><td>引发国际社会强烈批评，可能导致相关公司（如商汤、旷视）遭受海外制裁或业务受限，同时国内监管可能收紧，压制AI板块估值。</td></tr>
-        <tr><td>2026年6月2日</td><td>Windows Netlogon漏洞被攻击</td><td>网络安全、微软</td><td class="negative">消极</td><td>漏洞影响全球Windows用户，中国政企单位同样面临风险，会加大网络安全支出，利好国内网络安全厂商（奇安信、启明星辰），但微软产品信任度下降。</td></tr>
-        <tr><td>2026年6月2日</td><td>Spiro获2.15亿美元扩展非洲电动车基础设施</td><td>电动车、非洲</td><td class="positive">积极</td><td>显示全球电动车投资向新兴市场扩散，中国电动车和充电桩企业（比亚迪、特锐德）也可借鉴模式拓展一带一路沿线，提升出海预期。</td></tr>
-        <tr><td>2026年6月2日</td><td>中国导弹可能击落美国F-15E加剧紧张</td><td>地缘冲突、导弹</td><td class="negative">消极</td><td>直接升高中美军事紧张局势，引发避险情绪，短期利空A股整体市场（尤其是外资偏好的蓝筹股），但利好军工和黄金板块。</td></tr>
-        <tr><td>2026年6月2日</td><td>NVIDIA DLSS 4.5发布增强游戏画质</td><td>游戏显卡、NVIDIA</td><td class="positive">积极</td><td>提升游戏体验，利好中国游戏公司（腾讯、网易）以及电竞硬件产业链（显卡代工厂、散热模组），但英伟达领先优势压制国产GPU。</td></tr>
-        <tr><td>2026年6月2日</td><td>亚马逊/优步将AI战略转向效率</td><td>AI效率、成本控制</td><td class="positive">积极</td><td>国内互联网公司（阿里、京东、美团）也面临盈利压力，转向效率优先的策略将提升利润率，受到投资者欢迎。</td></tr>
-        <tr><td>2026年6月2日</td><td>攻击者使用ChatGPT域名钓鱼</td><td>网络安全、AI钓鱼</td><td class="negative">消极</td><td>钓鱼攻击泛滥将促使中国企业加强邮件安全防护，利好网络安全板块；但损害AI聊天机器人的公信力，影响国内类似产品（文心一言、通义千问）的推广。</td></tr>
-        <tr><td>2026年6月2日</td><td>英伟达CEO强调AI对利润与GDP的作用</td><td>AI经济、英伟达</td><td class="positive">积极</td><td>强化AI作为经济新引擎的共识，中国政策将继续大力支持AI算力与基建，利好算力概念股（中科曙光、浪潮信息）。</td></tr>
-        <tr><td>2026年6月2日</td><td>Autobrains与Uber、Nvidia推机器人出租车</td><td>自动驾驶、Robotaxi</td><td class="positive">积极</td><td>加快全球自动驾驶商业化，中国Robotaxi公司（百度Apollo、小马智行、滴滴）受益于产业链成熟，同时利好传感器和域控制器供应商（德赛西威、经纬恒润）。</td></tr>
-        <tr><td>2026年6月2日</td><td>俄罗斯停止煤油出口（无人机袭击炼油厂）</td><td>能源供应、煤油</td><td class="negative">消极</td><td>国际油价上行压力增大，中国作为原油进口国，航空煤油成本上升将利空航空板块（国航、南航），但利好新能源和煤炭替代板块。</td></tr>
-        <tr><td>2026年6月2日</td><td>比亚迪对自动驾驶期间事故承担责任</td><td>自动驾驶责任、比亚迪</td><td class="positive">积极</td><td>主动承担责任树立品牌信任，对比亚迪股价是直接利好，同时推动中国自动驾驶法规完善，利好整个智能汽车产业链。</td></tr>
-        <tr><td>2026年6月2日</td><td>软银超越丰田成日本最有价值公司</td><td>软银、市值</td><td class="positive">积极</td><td>软银重仓AI和芯片（Arm），提振中国科技股情绪，尤其是科创板中与软银投资相关的标的（如未上市企业，影响间接）。</td></tr>
-        <tr><td>2026年6月2日</td><td>OpenAI构建个人机器人</td><td>人形机器人、OpenAI</td><td class="positive">积极</td><td>进一步确认机器人是AI重要落地场景，中国机器人产业链（绿的谐波、双环传动、拓斯达）将受益于全球需求拉动。</td></tr>
-        <tr><td>2026年6月2日</td><td>马斯克百万颗AI卫星计划面临挑战</td><td>卫星互联网、Starlink</td><td class="positive">积极（对中国航天）</td><td>马斯克计划受阻，为中国卫星互联网（GW星座、G60星链）提供追赶窗口，利好中国卫星制造和发射企业（中国卫星、航天电子）。</td></tr>
-        <tr><td>2026年6月2日</td><td>美日加快联合导弹生产对抗中国</td><td>军工、导弹、地缘</td><td class="negative">整体消极 / 军工积极</td><td>加剧中国周边安全压力，整体市场情绪偏空；但中国势必增加国防预算，利好国产军工导弹产业链（航天长峰、北方导航）。</td></tr>
-        <tr><td>2026年6月1日</td><td>AI投资超越半导体扩展到服务器/软件</td><td>AI投资、服务器</td><td class="positive">积极</td><td>中国AI投资同样会从芯片扩展到服务器（浪潮、新华三）和软件（用友、金蝶），利好整个AI下游应用板块。</td></tr>
-        <tr><td>2026年6月1日</td><td>美国关闭AI芯片出口漏洞防止中国获取技术</td><td>芯片出口管制</td><td class="negative">消极</td><td>直接打击中国获取先进AI芯片（NVIDIA H20等可能也被限制），利空中国AI算力依赖型公司，但长期倒逼国产替代（华为昇腾、寒武纪、海光信息）加速。</td></tr>
-        <tr><td>2026年6月1日</td><td>英伟达每年在台湾投资1500亿美元</td><td>英伟达、对台投资</td><td class="neutral">中性偏消极</td><td>英伟达强化台湾供应链，对中国大陆半导体产业链形成竞争压力，但部分台系供应商在陆设厂可能间接受益。</td></tr>
-        <tr><td>2026年6月1日</td><td>AUKUS开发水下无人机保护贸易</td><td>水下无人机、AUKUS</td><td class="negative">消极</td><td>针对中国贸易和银行基础设施的防御姿态，加剧地缘紧张，利空海运和港口股（中远海控、上港集团），利好国产水下装备（中科海讯）。</td></tr>
-        <tr><td>2026年6月1日</td><td>马来西亚强制社交媒体年龄验证（封锁16岁以下）</td><td>社交媒体监管</td><td class="negative">消极（对出海）</td><td>示范效应可能传导至东南亚其他国家，增加中国社交APP（TikTok、Bigo）在东南亚的合规成本，影响用户增长。</td></tr>
-        <tr><td>2026年6月1日</td><td>俄罗斯开发卫星互联网系统（乌克兰监控）</td><td>卫星互联网、俄罗斯</td><td class="positive">积极</td><td>全球卫星互联网竞争加剧，中国加速部署自己的星座，利好国产卫星产业链。</td></tr>
-        <tr><td>2026年6月1日</td><td>Anthropic超OpenAI成最有价值AI初创</td><td>AI初创、估值</td><td class="positive">积极</td><td>提升AI赛道整体估值，中国AI独角兽（智谱、月之暗面、MiniMax）在一级市场和二级市场对标时受益。</td></tr>
-        <tr><td>2026年6月1日</td><td>习近平强调发展未来工业以获技术优势</td><td>政策支持、未来工业</td><td class="positive">积极</td><td>直接利好中国高科技板块，尤其是人工智能、半导体、量子计算、新能源等，政策预期将提振相关股票估值。</td></tr>
-    </tbody>
-</table>
-<p><em>注：影响分析基于新闻内容对A股及中国相关产业链的潜在影响，仅供学习参考，不构成投资建议。</em></p>
+<div class="container">
+    <h1>📊 新闻对股市影响分析（针对中国市场）</h1>
+    <p>数据时间：2026年6月15日 | 基于相对时间精确到小时</p>
+    <div class="summary">
+        <h3>📈 统计摘要</h3>
+        <div class="summary-stats">
+            <span class="stat stat-positive">😊 积极 9条</span>
+            <span class="stat stat-negative">😞 消极 13条</span>
+            <span class="stat stat-neutral">🔄 中性 4条</span>
+            <span class="stat stat-none">⚪ 无明显影响 3条</span>
+        </div>
+        <p><strong>主要积极领域：</strong> 国产AI芯片、AI基础设施投资、苹果AI、内存短缺涨价、国产替代<br>
+        <strong>主要消极领域：</strong> 稀土联盟、地缘军事冲突、社交媒体监管、印度半导体竞争、美国实体清单</p>
+    </div>
+    <table>
+        <thead>
+            <tr><th>日期（北京时间）</th><th>新闻标题</th><th>股市关键词</th><th>对中国股市影响</th><th>影响分析（针对中国市场）</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>6月15日 1小时前</td><td>ByteDance从Iluvatar CoreX和百度寻求人工智能芯片</td><td>字节跳动、AI芯片、国产替代</td><td class="positive">😊 积极</td><td>字节跳动寻求国产AI芯片（Iluvatar CoreX、百度），利好国产AI芯片产业链（寒武纪、海光信息、景嘉微）。</td></tr>
+            <tr><td>6月15日 1小时前</td><td>美国宇航局的X-59喷气式飞机飞行速度比声音快，预示着更安静的超音速旅行</td><td>NASA、超音速飞行</td><td class="none">⚪ 无明显影响</td><td>不涉及中国市场，对中国航空业影响有限。</td></tr>
+            <tr><td>6月15日 6小时前</td><td>日本提议加入七国集团稀土联盟，以对抗中国的主导地位</td><td>稀土、G7、资源竞争</td><td class="negative">😞 消极</td><td>日本联合G7降低对中国稀土依赖，可能影响中国稀土出口，利空稀土板块（北方稀土、中国稀土）。</td></tr>
+            <tr><td>6月15日 6小时前</td><td>中国日益增长的导弹能力威胁着澳大利亚的贸易和基础设施</td><td>导弹、地缘政治</td><td class="negative">😞 消极</td><td>渲染中国威胁论，加剧中澳关系紧张，利空对澳出口企业及在澳有投资的中国公司。</td></tr>
+            <tr><td>6月15日 7小时前</td><td>英国首相计划禁止16岁以下的人使用主要社交媒体平台</td><td>社交媒体监管、年龄限制</td><td class="negative">😞 消极</td><td>英国禁令可能引发其他国家效仿，增加中国社交APP（TikTok）海外合规成本和用户增长压力。</td></tr>
+            <tr><td>6月15日 9小时前</td><td>Satya Nadella概述了人工智能经济的核心组成部分：认知循环、人力资本和代币资本</td><td>AI经济、微软</td><td class="positive">😊 积极</td><td>微软CEO看好AI经济，提振全球AI产业信心，利好中国AI产业链（算力、大模型、应用）。</td></tr>
+            <tr><td>6月15日 15小时前</td><td>在国防一体化斗争中，法国和德国放弃了战斗机项目</td><td>欧洲防务、战斗机</td><td class="none">⚪ 无明显影响</td><td>欧洲内部分歧，对中国市场无直接影响。</td></tr>
+            <tr><td>6月15日 18小时前</td><td>SpaceX与谷歌达成了300亿美元的人工智能基础设施交易</td><td>SpaceX、谷歌、AI基础设施</td><td class="positive">😊 积极</td><td>大型科技公司加大AI投入，利好全球AI算力产业链，中国光模块、服务器厂商（中际旭创、浪潮信息）受益。</td></tr>
+            <tr><td>6月15日 19小时前</td><td>Alphabet筹集了847.5亿美元，为其1900亿美元的人工智能预算提供资金</td><td>Alphabet、AI投资</td><td class="positive">😊 积极</td><td>谷歌巨额AI投资显示行业高景气，利好中国AI算力和应用板块。</td></tr>
+            <tr><td>6月15日 19小时前</td><td>美国对人类出口管制揭示了欧洲对人工智能的依赖</td><td>出口管制、AI芯片</td><td class="neutral">🔄 中性偏消极</td><td>美国加强AI出口管制，中国同样面临压力，但凸显自主可控重要性，利好国产替代。</td></tr>
+            <tr><td>6月15日 20小时前</td><td>乌克兰无人机袭击了对炮弹生产至关重要的俄罗斯化肥厂</td><td>俄乌战争、化肥、无人机</td><td class="negative">😞 消极</td><td>袭击可能推高全球化肥价格，中国是化肥进口大国，利空农业成本，但利好国内化肥企业（盐湖股份、云天化）。</td></tr>
+            <tr><td>6月15日 20小时前</td><td>谷歌测试了主动监控用户互联网的人工智能代理</td><td>谷歌、AI代理、隐私</td><td class="neutral">🔄 中性偏消极</td><td>引发隐私担忧，可能加强全球AI监管，中国AI公司面临类似合规压力。</td></tr>
+            <tr><td>6月15日 20小时前</td><td>尽管特朗普警告，各州还是推进了人工智能法规</td><td>美国AI监管</td><td class="neutral">🔄 中性</td><td>美国各州推进AI法规，影响全球AI治理趋势，中国也会加强监管，利好合规能力强的头部AI公司。</td></tr>
+            <tr><td>6月15日 21小时前</td><td>随着全球需求的增长，印度吸引了更多的内存芯片生产</td><td>印度、内存芯片、半导体</td><td class="negative">😞 消极</td><td>印度发展内存芯片生产可能与中国形成竞争，利空中国存储芯片产业（长江存储、兆易创新）。</td></tr>
+            <tr><td>6月14日 1d 3小时前</td><td>Apple Intelligence和Siri AI在WWDC 2026上首次亮相</td><td>苹果、AI、Siri</td><td class="positive">😊 积极</td><td>苹果AI功能推动消费电子端AI应用，利好中国苹果产业链（立讯精密、歌尔股份）及AI应用开发商。</td></tr>
+            <tr><td>6月14日 1d 6小时前</td><td>人工智能需求造成内存短缺，全球成本增加</td><td>内存短缺、AI需求</td><td class="positive">😊 积极</td><td>内存短缺推升价格，利好中国存储芯片和模组厂商（兆易创新、北京君正、澜起科技）。</td></tr>
+            <tr><td>6月14日 1d 6小时前</td><td>俄罗斯家庭创建了在乌克兰失踪士兵的人工智能版本</td><td>俄罗斯、AI应用</td><td class="none">⚪ 无明显影响</td><td>俄罗斯内政相关，对中国市场无直接影响。</td></tr>
+            <tr><td>6月14日 1d 9小时前</td><td>随着首次公开募股的临近，OpenAI面临对用户安全的多州调查</td><td>OpenAI、用户安全、调查</td><td class="negative">😞 消极</td><td>OpenAI面临监管风险，可能影响全球AI行业信心，对AI概念股有短期压力，显示AI监管趋严。</td></tr>
+            <tr><td>6月14日 1d 10小时前</td><td>伊朗强化了浓缩铀库存的隧道</td><td>伊朗、核问题</td><td class="negative">😞 消极</td><td>中东地缘紧张加剧，推高油价，利空中国航空和制造业，利好新能源和军工。</td></tr>
+            <tr><td>6月14日 1d 12小时前</td><td>德国指挥官警告俄罗斯可能会开发轨道核武器</td><td>俄罗斯、轨道核武器</td><td class="negative">😞 消极</td><td>地缘紧张升级，引发全球避险情绪，利空A股整体市场，利好军工和黄金。</td></tr>
+            <tr><td>6月14日 1d 15小时前</td><td>在美国停火期间，俄罗斯可能帮助伊朗重建了其导弹武库</td><td>俄罗斯、伊朗、导弹</td><td class="negative">😞 消极</td><td>中东军备升级，加剧地缘风险，利空A股情绪，利好军工。</td></tr>
+            <tr><td>6月14日 1d 16小时前</td><td>俄罗斯在全欧洲测试全球定位系统干扰，发出电子战准备信号</td><td>GPS干扰、电子战</td><td class="negative">😞 消极</td><td>地缘紧张，可能影响全球供应链和航运，利空A股整体市场。</td></tr>
+            <tr><td>6月14日 1d 17小时前</td><td>德国法院认定谷歌对人工智能生成的搜索摘要负责</td><td>谷歌、AI责任、监管</td><td class="neutral">🔄 中性偏消极</td><td>AI责任认定加强全球AI监管，中国AI公司面临类似法律风险，利好合规服务商。</td></tr>
+            <tr><td>6月14日 1d 18小时前</td><td>中国对五角大楼将科技公司列入与军事有联系的名单提出抗议</td><td>实体清单、科技战</td><td class="negative">😞 消极</td><td>美国扩大对中国科技公司制裁，利空被列入清单的公司，利好国产替代。</td></tr>
+            <tr><td>6月14日 1d 22小时前</td><td>科学家绘制了连接全球植物的广阔地下真菌网络</td><td>生态学、真菌</td><td class="none">⚪ 无明显影响</td><td>基础科研，对中国股市无直接影响。</td></tr>
+            <tr><td>6月14日 1d 22小时前</td><td>印度在导弹防御方面取得了历史性的里程碑，成功进行了第二阶段的试验</td><td>印度、导弹防御</td><td class="negative">😞 消极</td><td>印度军力增强加剧地区军备竞赛，利空中印关系，利好中国军工板块。</td></tr>
+            <tr><td>6月14日 1d 23小时前</td><td>烏克蘭襲擊了通往克里米亞的關鍵橋樑，擾亂了俄羅斯的物流</td><td>俄乌冲突、物流</td><td class="negative">😞 消极</td><td>俄乌冲突持续，地缘风险，利空A股情绪，利好军工和能源。</td></tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <p>注：本分析基于新闻内容对A股及中国相关产业链的潜在影响，仅供学习参考，不构成投资建议。</p>
+        <p>😊 积极 = 利好中国相关板块 | 😞 消极 = 利空中国相关板块 | 🔄 中性 = 影响复杂或有限 | ⚪ 无明显影响 = 与中国市场无直接关联</p>
+        <p>共分析27条新闻 | 时间精确到相对小时</p>
+    </div>
+</div>
 </body>
-</html><!DOCTYPE html>
+</html>
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
